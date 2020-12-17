@@ -12,3 +12,5 @@ jobs:
       run: |
         npm -v
         node -v
+    - name: run one more run-shell-command  
+      run: echo "priyanka" > pikku.txt
