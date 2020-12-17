@@ -14,3 +14,8 @@ jobs:
         node -v
     - name: run one more run-shell-command  
       run: echo "priyanka" > pikku.txt
+    - name: python-command
+      run: |
+        import platform
+        print(platform())
+      shell: python
