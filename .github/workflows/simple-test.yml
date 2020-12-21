@@ -1,4 +1,4 @@
-name: Setting our first workflow
+name: Setting checkout action in action
 
 on: [push]
 
@@ -6,24 +6,17 @@ jobs:
   run-shell-command:
     runs-on: ubuntu-latest
     steps:
-    - name: echo a string
-      run: echo "My name is amardeep"
-    - name: multiline echo
+    - name: List files
       run: |
-        npm -v
-        node -v
-    - name: run one more run-shell-command  
-      run: echo "priyanka" > pikku.txt
-    - name: python-command
-      run: |
-        import platform
-        print(platform())
-      shell: python
-  run-windows-command:
-    runs-on: windows-latest
-    steps:
-    - name: directory-powershell
-      run: Get-Location
-    - name: directory-bash
-      run: pwd
-      shell: bash 
+        pwd
+        ls -a
+
+    - name: checkout
+      uses: actions/checkout@v2 #It will fetch the repo with latest commit changes
+
+    - name: List files after checkout 
+      run: |    #get commit ID by doing GITHUB_SHA
+        pwd
+        ls -a
+        echo $GITHUB_SHA  
+        echo $GITHUB_REPOSITORY
