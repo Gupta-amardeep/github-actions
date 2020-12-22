@@ -15,8 +15,9 @@ jobs:
       uses: actions/checkout@v2 #It will fetch the repo with latest commit changes
 
     - name: List files after checkout 
-      run: |    #get commit ID by doing GITHUB_SHA
+      run: |    #get commit ID by doing GITHUB_SHA and branch using GITHUB_REF
         pwd
         ls -a
         echo $GITHUB_SHA  
         echo $GITHUB_REPOSITORY
+        echo $GITHUB_REF  
